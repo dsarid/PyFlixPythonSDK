@@ -27,7 +27,7 @@ index-url = ${NEXUS_PYPI_URL}
 
                    pip install boto3
                    # pip install --trusted-host ${NEXUS_URL} --index-url ${NEXUS_PYPI_URL}  -r requirements.txt
-                   # pip install -r requirements.txt
+                   pip install '--trusted-host 172.20.0.2' -r requirements.txt
                 '''
             }
         }
