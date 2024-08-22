@@ -1,3 +1,5 @@
 requests
 PyJWT
 bcrypt
+twine
+build
