@@ -1,7 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        label 'general'
+    }
     environment {
-        NEXUS_CREDENTIALS_ID = "nexus"  # TODO complete me
+        NEXUS_CREDENTIALS_ID = "nexus"
         NEXUS_URL = "http://localhost:8081/"
         GROUP_REPO_NAME = "py-group"
         DEV_HOSTED_REPO_NAME = "py-dev"
@@ -10,7 +12,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
-                   python -m venv venv
+                   python3 -m venv venv
                    . venv/bin/activate
 
                    # now packages should be installed from your Nexus pypi.org-central, not from the original pypi.org!
