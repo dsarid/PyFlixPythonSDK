@@ -15,11 +15,19 @@ pipeline {
                    python3 -m venv venv
                    . venv/bin/activate
 
+
+
                    # now packages should be installed from your Nexus pypi.org-central, not from the original pypi.org!
                    NEXUS_PYPI_URL="${NEXUS_URL}/repository/${GROUP_REPO_NAME}/simple"
-                   pip install boto3
-                   pip install --trusted-host ${NEXUS_URL} --index-url ${NEXUS_PYPI_URL}  -r requirements.txt
 
+                   echo "[global]
+trusted-host = localhost:8081
+index-url = http://localhost:8081/repository/py-group/simple
+" > venv/pip.conf
+
+                   pip install boto3
+                   # pip install --trusted-host ${NEXUS_URL} --index-url ${NEXUS_PYPI_URL}  -r requirements.txt
+                   # pip install -r requirements.txt
                 '''
             }
         }
