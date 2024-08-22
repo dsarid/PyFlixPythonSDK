@@ -21,7 +21,7 @@ pipeline {
                    NEXUS_PYPI_URL="${NEXUS_URL}/repository/${GROUP_REPO_NAME}/simple"
 
                    echo "[global]
-trusted-host = ${NEXUS_URL}
+trusted-host = 172.20.0.2
 index-url = ${NEXUS_PYPI_URL}
 " > venv/pip.conf
 
