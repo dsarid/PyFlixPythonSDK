@@ -22,7 +22,7 @@ pipeline {
 
                    echo "[global]
 trusted-host = localhost:8081
-index-url = http://localhost:8081/repository/py-group/simple
+index-url = ${NEXUS_PYPI_URL}
 " > venv/pip.conf
 
                    pip install boto3
